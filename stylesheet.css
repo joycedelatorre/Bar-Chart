@@ -3,26 +3,24 @@
 }
 
 .tdName{
-  width:100px;
+  /*width:100px;*/
   text-align:right;
   padding-right: 0px;
   border-right: 2px solid black;
 
 }
 .tdSvg{
-  width:70px;
-  padding-left: 0;
+  /*width:70px;*/
+  padding-left:0;
 
 }
 
 table, th, td {
    /*border: 1px solid black;*/
    margin:50px;
+   /*width:100%;*/
 }
 
-input{
-  border: 1px solid black;
-}
 .bar {
   fill: #008080;
   height: 21px;
@@ -34,10 +32,10 @@ input{
   fill: #555;
 }*/
 
-.chart:hover .bar,
+/*.chart:hover .bar,
 .chart:focus .bar {
   fill: #aaa;
-}
+}*/
 
 .bar:hover,
 .bar:focus {
@@ -98,4 +96,23 @@ body {
 .tooltip:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
+}
+
+
+/*second table*/
+.table-stat-value{
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 20%;
+    margin:50px;
+}
+
+.table-stat-value td, th {
+    border: 1px solid black;
+    text-align: left;
+    padding: 8px;
+}
+
+.table-stat-value tr:nth-child(odd) {
+    background-color: #dddddd;
 }
