@@ -23,15 +23,14 @@ function renderChart(){
 	for (var i = 0; i < dataSet.length; i++){
 		// console.log(dataSet[i].marketCap);
 		$(".table-svg-chart").append("<tr class='tooltip' rowId="+ i +
-			"><td><input type='checkbox' class='chex'id='"+ i +"' value=''></td><td class='tdName'>"+ dataSet[i].name +"&#8212;"+
-			"</td><td class='tdSvg'><svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='chart' width='1000' height='19' aria-labelledby='title' role='img'><g class='bar'><rect width='"+dataSet[i].marketCap+"' height='19'></rect></g></td><td><span class='tooltiptext'>Price: "+dataSet[i].price+" MarketCap: "+dataSet[i].marketCap+"</span></td></tr>"
+			"><td class='tdCheckbox'><input type='checkbox' class='chex'id='"+ i +"' value=''></td><td class='tdName'>"+ dataSet[i].name +"&#8212;"+"</td><td class='tdSvg'><svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='chart' width='100%' height='19' aria-labelledby='title' role='img'><g class='bar'><rect width='"+(dataSet[i].marketCap/dataSet[0].marketCap)*100 +"%' height='19'></rect></g></td><td><span class='tooltiptext'>Price: "+ dataSet[i].price +" MarketCap: "+ dataSet[i].marketCap +"</span></td></tr>"
 		);
 	}
 }
 
 renderChart();
 //-----------------------------------------------------------------
-//Check box
+//Check box to render in the table
 
 var numberOfChecked;
 var sum = 0;
@@ -75,7 +74,6 @@ var highestPrice=0;
 
 
 	$( ".chex" ).click(function() {
-		// checkHighestPrice();
 	  numberOfChecked= $('input:checkbox:checked').length;
 	  $('.numSelect').empty();
 	  $('.numSelect').append(numberOfChecked);

@@ -3,21 +3,30 @@
 }
 
 .tdName{
-  /*width:100px;*/
+  width:100px;
+  min-width: 100px;
   text-align:right;
   padding-right: 0px;
   border-right: 2px solid black;
 
+
 }
 .tdSvg{
-  /*width:70px;*/
+  width:100%;
   padding-left:0;
+}
 
+.tdCheckbox{
+  width:20px;
+}
+
+.table-svg-chart{
+  width:100%;
 }
 
 table, th, td {
-   /*border: 1px solid black;*/
-   margin:50px;
+   border: 1px solid black;
+   /*margin:50px;*/
    /*width:100%;*/
 }
 
@@ -61,8 +70,8 @@ body {
 
 .tooltip {
     position: relative;
-    /*display: inline-block;*/
-    /*border-bottom: 1px dotted black;*/
+    display: inline-block;
+    width:100%;
 }
 
 .tooltip .tooltiptext {
