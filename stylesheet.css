@@ -14,10 +14,10 @@
   fill: #aaa;
 }
 
-.bar:hover,
+/*.bar:hover,
 .bar:focus {
   fill: green !important;
-}
+}*/
 /*.bar:hover text,
 .bar:focus text {
   fill: red;
