@@ -21,4 +21,6 @@
 
 ### Preview
 
+#####[Check me out here](https://joycedelatorre.github.io/Bar-Chart/)
+
 ![preview](https://github.com/joycedelatorre/Bar-Chart/blob/master/images/preview.png "preview")
