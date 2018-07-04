@@ -23,7 +23,7 @@ function renderChart(){
 	for (var i = 0; i < dataSet.length; i++){
 		// console.log(dataSet[i].marketCap);
 		$(".table-svg-chart").append("<tr class='tooltip' id="+ i +
-			"><td><input type='checkbox' id='"+ i +"'></td><td class='tdName'>"+ dataSet[i].name +"&#8212;"+
+			"><td><input type='checkbox' class='chex'id='"+ i +" value=''></td><td class='tdName'>"+ dataSet[i].name +"&#8212;"+
 			"</td><td class='tdSvg'><svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='chart' width='1000' height='19' aria-labelledby='title' role='img'><g class='bar'><rect width='"+dataSet[i].marketCap+"' height='19'></rect></g></td><td><span class='tooltiptext'>Price: "+dataSet[i].price+" MarketCap: "+dataSet[i].marketCap+"</span></td></tr>"
 		);
 	}
@@ -31,6 +31,15 @@ function renderChart(){
 
 renderChart();
 
+var numberOfChecked;
+
+$( ".chex" ).click(function() {
+  numberOfChecked= $('input:checkbox:checked').length;
+  $('.numSelect').empty();
+  $('.numSelect').append(numberOfChecked);
+
+	console.log(numberOfChecked);
+});
 
 });
 
