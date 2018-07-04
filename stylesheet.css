@@ -5,9 +5,9 @@
   cursor: pointer;
   font-family: Helvetica, sans-serif;
 }
-.bar text {
+/*.bar text {
   fill: #555;
-}
+}*/
 
 .chart:hover .bar,
 .chart:focus .bar {
@@ -16,12 +16,12 @@
 
 .bar:hover,
 .bar:focus {
-  fill: red !important;
+  fill: green !important;
 }
-.bar:hover text,
+/*.bar:hover text,
 .bar:focus text {
   fill: red;
-}
+}*/
 
 figcaption {
   font-weight: bold;
