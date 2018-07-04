@@ -1,5 +1,3 @@
-// Step 1 sort the dataset into a descending order
-// 2. render a chart as you loop through the dataset
 
 dataSet = [
 {"name": "Apple", "price": 191, "marketCap": 942},
@@ -24,24 +22,12 @@ dataSet.sort(function (a, b){
 function renderChart(){
 	for (var i = 0; i < dataSet.length; i++){
 		// console.log(dataSet[i].marketCap);
-		$(".table-svg-chart").append("<tr id="+ i +
-			"><td><input type='checkbox' id='"+ i +"'></td><td>"+ dataSet[i].name +
-			"</td><td><figure><svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='chart' width='1000' height='19' aria-labelledby='title' role='img'><g class='bar'><rect width='"+dataSet[i].marketCap+"' height='19'></rect></g></figure></td><td class='popUp'><span class='popuptext'>Price: "+dataSet[i].price+" MarketCap: "+dataSet[i].marketCap+"</span></td>"
+		$(".table-svg-chart").append("<tr class='tooltip' id="+ i +
+			"><td><input type='checkbox' id='"+ i +"'></td><td class='tdName'>"+ dataSet[i].name +"&#8212;"+
+			"</td><td class='tdSvg'><svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='chart' width='1000' height='19' aria-labelledby='title' role='img'><g class='bar'><rect width='"+dataSet[i].marketCap+"' height='19'></rect></g></td><td><span class='tooltiptext'>Price: "+dataSet[i].price+" MarketCap: "+dataSet[i].marketCap+"</span></td></tr>"
 		);
 	}
 }
-
-
-$( "tr" ).hover(
-  function() {
-    $( this ).append( $( "<span> *** </span>" ) );
-  }
-);
- 
-// $( "td.fade" ).hover(function() {
-//   $( this ).fadeOut( 100 );
-//   $( this ).fadeIn( 500 );
-// });
 
 renderChart();
 

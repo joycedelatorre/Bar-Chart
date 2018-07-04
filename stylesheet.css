@@ -1,5 +1,30 @@
+.banner{
+ text-align: center;
+}
+
+.tdName{
+  width:100px;
+  text-align:right;
+  padding-right: 0px;
+  border-right: 2px solid black;
+
+}
+.tdSvg{
+  width:70px;
+  padding-left: 0;
+
+}
+
+table, th, td {
+   /*border: 1px solid black;*/
+   margin:50px;
+}
+
+input{
+  border: 1px solid black;
+}
 .bar {
-  fill: #aaa;
+  fill: #008080;
   height: 21px;
   transition: fill .3s ease;
   cursor: pointer;
@@ -14,10 +39,10 @@
   fill: #aaa;
 }
 
-/*.bar:hover,
+.bar:hover,
 .bar:focus {
-  fill: green !important;
-}*/
+  fill: #ff7f50 !important;
+}
 /*.bar:hover text,
 .bar:focus text {
   fill: red;
@@ -31,4 +56,46 @@ figcaption {
 
 body {
   font-family: 'Open Sans', sans-serif;
+}
+
+
+/*Tooltip*/
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    /*border-bottom: 1px dotted black;*/
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 85%;
+    left: 30%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left:50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
 }
