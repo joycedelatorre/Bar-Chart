@@ -30,27 +30,56 @@ function renderChart(){
 }
 
 renderChart();
+//-----------------------------------------------------------------
+//Check box
 
 var numberOfChecked;
 var sum = 0;
 var highestPrice=0;
 
+function summation(data){
+	sum = sum + dataSet[data.id].price;
+  	$('.totPrice').empty();
+	  $('.totPrice').append(sum);
+}
+
+function uncheckedSummation(data){
+	sum = sum - dataSet[data.id].price;
+  	$('.totPrice').empty();
+	  $('.totPrice').append(sum);
+}
+
+function ave(){
+	average = sum/numberOfChecked
+	  $('.avePrice').empty();
+	  $('.avePrice').append(average);
+}
+
+function checkHighestPrice(){
+	console.log('hello');
+	for(var i=0; i<dataSet.length; i++){
+		console.log(this + "<-----");
+		if($(this).prop("checked")){
+			console.log(dataSet[this.id].name);
+			if(highestPrice < dataSet[this.id].price){
+				highestPrice = dataSet[this.id].price
+				$('.highPrice').empty();
+	 			$('.highPrice').append(dataSet[this.id].name);	
+			}
+		}
+	}
+}
+
 $( ".chex" ).click(function() {
+	checkHighestPrice();
   numberOfChecked= $('input:checkbox:checked').length;
   $('.numSelect').empty();
   $('.numSelect').append(numberOfChecked);
 
   if ($(this).is(":checked")){
   	console.log(dataSet[this.id]);
-
-  	sum = sum + dataSet[this.id].price;
-  	$('.totPrice').empty();
-	  $('.totPrice').append(sum);
-
-
-	  average = sum/numberOfChecked    //-------- refactor
-	  $('.avePrice').empty();
-	  $('.avePrice').append(average);
+  	summation(this);
+  	ave();
 
 	  // if(highestPrice.is('undefined')){
 	  	//highestPrice = dataSet[this.id].price
@@ -67,18 +96,11 @@ $( ".chex" ).click(function() {
 	 	// 	$('.highPrice').append(dataSet[this.id].name);	
 	  // }
 
-  } else{
-  	sum = sum - dataSet[this.id].price;
-  	$('.totPrice').empty();
-	  $('.totPrice').append(sum);
-
- 
-	  average = sum/numberOfChecked // -------------- refactor
-	  $('.avePrice').empty();
-	  $('.avePrice').append(average);
-
+  } else{ // else if unchecked
+  	checkHighestPrice();
+	  uncheckedSummation(this);
+	  ave();
   }
-
 	console.log(numberOfChecked);
 });
 
