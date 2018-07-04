@@ -33,6 +33,7 @@ renderChart();
 
 var numberOfChecked;
 var sum = 0;
+var highestPrice=0;
 
 $( ".chex" ).click(function() {
   numberOfChecked= $('input:checkbox:checked').length;
@@ -40,7 +41,7 @@ $( ".chex" ).click(function() {
   $('.numSelect').append(numberOfChecked);
 
   if ($(this).is(":checked")){
-  	console.log(this.id);
+  	console.log(dataSet[this.id]);
 
   	sum = sum + dataSet[this.id].price;
   	$('.totPrice').empty();
@@ -50,6 +51,21 @@ $( ".chex" ).click(function() {
 	  average = sum/numberOfChecked    //-------- refactor
 	  $('.avePrice').empty();
 	  $('.avePrice').append(average);
+
+	  // if(highestPrice.is('undefined')){
+	  	//highestPrice = dataSet[this.id].price
+	  	// $('.highPrice').empty();
+	 		// $('.highPrice').append(highestPrice);	
+	  // } else 
+	  if(highestPrice < dataSet[this.id].price){
+	  	highestPrice = dataSet[this.id].price
+	  	$('.highPrice').empty();
+	 		$('.highPrice').append(dataSet[this.id].name);	
+	  } 
+	  // else{
+	  // 	$('.highPrice').empty();
+	 	// 	$('.highPrice').append(dataSet[this.id].name);	
+	  // }
 
   } else{
   	sum = sum - dataSet[this.id].price;
