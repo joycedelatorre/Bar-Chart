@@ -50,58 +50,52 @@ function uncheckedSummation(data){
 }
 
 function ave(){
-	average = sum/numberOfChecked
+	average = sum/numberOfChecked.toFixed(2);
 	  $('.avePrice').empty();
 	  $('.avePrice').append(average);
 }
 
 function checkHighestPrice(){
-	console.log('hello');
-	for(var i=0; i<dataSet.length; i++){
-		console.log(this + "<-----");
-		if($(this).prop("checked")){
-			console.log(dataSet[this.id].name);
-			if(highestPrice < dataSet[this.id].price){
-				highestPrice = dataSet[this.id].price
-				$('.highPrice').empty();
-	 			$('.highPrice').append(dataSet[this.id].name);	
-			}
-		}
-	}
+	var highestPrice = 0;
+	var highestPriceName ="";
+	$( ".chex" ).each(function( index ) {
+	  // console.log( index + ": " + $( this ).text() );
+	  if($(this).prop("checked")) {
+	  	var id = $(this).attr('id');
+	  	console.log(id + "<---");
+	  	if (dataSet[id].price > highestPrice){
+	  		highestPriceName = dataSet[id].name;
+	  		highestPrice = dataSet[id].price;
+	  	}
+	  }
+	});
+	return highestPriceName;
 }
 
+
 $( ".chex" ).click(function() {
-	checkHighestPrice();
+	// checkHighestPrice();
   numberOfChecked= $('input:checkbox:checked').length;
   $('.numSelect').empty();
   $('.numSelect').append(numberOfChecked);
 
   if ($(this).is(":checked")){
-  	console.log(dataSet[this.id]);
+  	//console.log(dataSet[this.id]);
   	summation(this);
   	ave();
-
-	  // if(highestPrice.is('undefined')){
-	  	//highestPrice = dataSet[this.id].price
-	  	// $('.highPrice').empty();
-	 		// $('.highPrice').append(highestPrice);	
-	  // } else 
-	  if(highestPrice < dataSet[this.id].price){
-	  	highestPrice = dataSet[this.id].price
-	  	$('.highPrice').empty();
-	 		$('.highPrice').append(dataSet[this.id].name);	
-	  } 
-	  // else{
-	  // 	$('.highPrice').empty();
-	 	// 	$('.highPrice').append(dataSet[this.id].name);	
-	  // }
+	  // if(highestPrice < dataSet[this.id].price){
+	  // 	highestPrice = dataSet[this.id].price
+	  	
+	  // } 
 
   } else{ // else if unchecked
-  	checkHighestPrice();
+  
 	  uncheckedSummation(this);
 	  ave();
   }
-	console.log(numberOfChecked);
+  	$('.highPrice').empty();
+	 	$('.highPrice').append(checkHighestPrice());
+	//console.log(numberOfChecked);
 });
 
 });
