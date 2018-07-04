@@ -50,7 +50,7 @@ body {
 
 .tooltip .tooltiptext {
     visibility: hidden;
-    width: 120px;
+    width: 150px;
     background-color: #555;
     color: #fff;
     text-align: center;
@@ -60,7 +60,7 @@ body {
     z-index: 1;
     bottom: 85%;
     left: 30%;
-    margin-left: -60px;
+    margin-left: -150px;
     opacity: 0;
     transition: opacity 0.3s;
 }
