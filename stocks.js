@@ -37,66 +37,63 @@ var numberOfChecked;
 var sum = 0;
 var highestPrice=0;
 
-function summation(data){
-	sum = sum + dataSet[data.id].price;
-  	$('.totPrice').empty();
-	  $('.totPrice').append(sum);
-}
+	function summation(data){
+		sum = sum + dataSet[data.id].price;
+	  	$('.totPrice').empty();
+		  $('.totPrice').append(sum);
+	}
 
-function uncheckedSummation(data){
-	sum = sum - dataSet[data.id].price;
-  	$('.totPrice').empty();
-	  $('.totPrice').append(sum);
-}
+	function uncheckedSummation(data){
+		sum = sum - dataSet[data.id].price;
+	  	$('.totPrice').empty();
+		  $('.totPrice').append(sum);
+	}
 
-function ave(){
-	average = sum/numberOfChecked.toFixed(2);
-	  $('.avePrice').empty();
-	  $('.avePrice').append(average);
-}
+	function ave(){
+		average = sum/numberOfChecked
+		roundUp_mean = Math.ceil(average * 100)/100;
+		  $('.avePrice').empty();
+		  $('.avePrice').append(roundUp_mean);
+	}
 
-function checkHighestPrice(){
-	var highestPrice = 0;
-	var highestPriceName ="";
-	$( ".chex" ).each(function( index ) {
-	  // console.log( index + ": " + $( this ).text() );
-	  if($(this).prop("checked")) {
-	  	var id = $(this).attr('id');
-	  	console.log(id + "<---");
-	  	if (dataSet[id].price > highestPrice){
-	  		highestPriceName = dataSet[id].name;
-	  		highestPrice = dataSet[id].price;
-	  	}
+	function checkHighestPrice(){
+		var highestPrice = 0;
+		var highestPriceName ="";
+		$( ".chex" ).each(function( index ) {
+		  // console.log( index + ": " + $( this ).text() );
+		  if($(this).prop("checked")) {
+		  	var id = $(this).attr('id');
+		  	console.log(id + "<---");
+		  	if (dataSet[id].price > highestPrice){
+		  		highestPriceName = dataSet[id].name;
+		  		highestPrice = dataSet[id].price;
+		  	}
+		  }
+		});
+		return highestPriceName;
+	}
+
+
+	$( ".chex" ).click(function() {
+		// checkHighestPrice();
+	  numberOfChecked= $('input:checkbox:checked').length;
+	  $('.numSelect').empty();
+	  $('.numSelect').append(numberOfChecked);
+
+	  if ($(this).is(":checked")){
+	  	//console.log(dataSet[this.id]);
+	  	summation(this);
+	  	ave();
+
+	  } else{ // else if unchecked
+	  
+		  uncheckedSummation(this);
+		  ave();
 	  }
-	});
-	return highestPriceName;
-}
+	  	$('.highPrice').empty();
+		 	$('.highPrice').append(checkHighestPrice());
+		//console.log(numberOfChecked);
+	}); //end of chex click event
 
-
-$( ".chex" ).click(function() {
-	// checkHighestPrice();
-  numberOfChecked= $('input:checkbox:checked').length;
-  $('.numSelect').empty();
-  $('.numSelect').append(numberOfChecked);
-
-  if ($(this).is(":checked")){
-  	//console.log(dataSet[this.id]);
-  	summation(this);
-  	ave();
-	  // if(highestPrice < dataSet[this.id].price){
-	  // 	highestPrice = dataSet[this.id].price
-	  	
-	  // } 
-
-  } else{ // else if unchecked
-  
-	  uncheckedSummation(this);
-	  ave();
-  }
-  	$('.highPrice').empty();
-	 	$('.highPrice').append(checkHighestPrice());
-	//console.log(numberOfChecked);
-});
-
-});
+}); //end of document.ready
 
