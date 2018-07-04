@@ -18,3 +18,7 @@
 	2. Total Price - the sume of the prices of the selected stocks
 	3. Average Price - the average price of the selected stocks
 	4. Stock with Highest Price - the name of the stock with the highest Price
+
+### Preview
+
+![preview](https://github.com/joycedelatorre/Bar-Chart/blob/master/images/preview.png "preview")
