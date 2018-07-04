@@ -1,3 +1,7 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
 .banner{
  text-align: center;
 }
@@ -8,7 +12,6 @@
   text-align:right;
   padding-right: 0px;
   border-right: 2px solid black;
-
 
 }
 .tdSvg{
@@ -23,13 +26,7 @@
 .table-svg-chart{
   width:100%;
 }
-
-table, th, td {
-   /*border: 1px solid black;*/
-   /*margin:50px;*/
-   /*width:100%;*/
-}
-
+/* stylized each bar */
 .bar {
   fill: #008080;
   height: 21px;
@@ -37,34 +34,11 @@ table, th, td {
   cursor: pointer;
   font-family: Helvetica, sans-serif;
 }
-/*.bar text {
-  fill: #555;
-}*/
-
-/*.chart:hover .bar,
-.chart:focus .bar {
-  fill: #aaa;
-}*/
 
 .bar:hover,
 .bar:focus {
   fill: #ff7f50 !important;
 }
-/*.bar:hover text,
-.bar:focus text {
-  fill: red;
-}*/
-
-figcaption {
-  font-weight: bold;
-  color: #000;
-  margin-bottom: 20px;
-}
-
-body {
-  font-family: 'Open Sans', sans-serif;
-}
-
 
 /*Tooltip*/
 

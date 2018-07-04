@@ -13,9 +13,11 @@ dataSet = [
 $(document).ready(function(){
 
 // first sort the dataset to achieve the descending order.
+
 dataSet.sort(function (a, b){
 	return parseFloat(b.marketCap) - parseFloat(a.marketCap);
 });
+
 //console.log(dataSet); //--> to check sorted dataset
 // once sorted call the renderChart() to display the chart.
 
@@ -23,7 +25,7 @@ function renderChart(){
 	for (var i = 0; i < dataSet.length; i++){
 		// console.log(dataSet[i].marketCap);
 		$(".table-svg-chart").append("<tr class='tooltip' rowId="+ i +
-			"><td class='tdCheckbox'><input type='checkbox' class='chex'id='"+ i +"' value=''></td><td class='tdName'>"+ dataSet[i].name +"&#8212;"+"</td><td class='tdSvg'><svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='chart' width='100%' height='19' aria-labelledby='title' role='img'><g class='bar'><rect width='"+(dataSet[i].marketCap/dataSet[0].marketCap)*100 +"%' height='19'></rect></g></td><td><span class='tooltiptext'>Price: "+ dataSet[i].price +" MarketCap: "+ dataSet[i].marketCap +"</span></td></tr>"
+			"><td class='tdCheckbox'><input type='checkbox' class='chex'id='"+ i +"' value=''></td><td class='tdName'>"+ dataSet[i].name +"&#8212;"+"</td><td class='tdSvg'><svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='chart' width='100%' height='19' aria-labelledby='title' role='img'><g class='bar'><rect width='"+(dataSet[i].marketCap/dataSet[0].marketCap)*100 +"%' height='19'></rect></g></td><td><span class='tooltiptext'>Price: "+ dataSet[i].price +" Market Cap: "+ dataSet[i].marketCap +"</span></td></tr>"
 		);
 	}
 }
